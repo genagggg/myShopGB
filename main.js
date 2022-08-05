@@ -27,17 +27,17 @@ const products = [
 
 const renderProduct = (title, price, img) => `
 <div class = "product-item">
-<img src="images/${img}">
-<h3>${title}</h3>
-<p>${price}</p>
-
+<img class="product-item-images" src="images/${img}">
+<h3 class="product-name"> Название товара: ${title}</h3>
+<p class="product-price"> Цена товара: ${price}</p>
+<div class="button-addet-busket">Добавить</div>
 </div>
 `
 
 const renderPage = list => {
     const productsList = list.map(item => renderProduct(item.title, item.price, item.img))
-    //console.log(productsList)
-    document.querySelector('.products').innerHTML = productsList;
+
+    document.querySelector('.products').innerHTML = productsList.join('');
 }
 
 renderPage(products);
